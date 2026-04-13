@@ -1,0 +1,274 @@
+/* --- BASE DARK THEME --- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a0a0a; /* Deep black */
+    color: #f0f0f0; /* Off-white text for readability */
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    margin: 0;
+}
+
+.app-container {
+    background: #1a1a1a; /* Dark charcoal */
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 0;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- SETUP SCREEN INPUTS --- */
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #b3b3b3;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect on the group label */
+.form-group:hover label {
+    color: #ffffff;
+}
+
+.form-group input, .form-group select, #score-input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border: 2px solid #3d3d3d;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Highlight inputs when hovered or clicked */
+.form-group input:hover, .form-group select:hover, #score-input:hover {
+    border-color: #555555;
+    background-color: #353535;
+}
+
+.form-group input:focus, .form-group select:focus, #score-input:focus {
+    outline: none;
+    border-color: #2ecc71; /* Green glow for active inputs */
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.2);
+}
+
+/* --- GAME SCREEN PANELS --- */
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+.team-panel {
+    flex: 1;
+    padding: 1.5rem 1rem;
+    background-color: #252525;
+    border-radius: 12px;
+    border: 2px solid #333;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.team-panel:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    border-color: #444;
+}
+
+.team-panel h2 {
+    margin-top: 0;
+    font-size: 1.3rem;
+    color: #888;
+    word-break: break-all;
+    transition: color 0.3s ease;
+}
+
+.score {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+/* The Active Team Styling */
+.team-panel.active {
+    border-color: #2ecc71; /* Green border for active */
+    background-color: #1e2e24; /* Subtle green tint */
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.1);
+}
+
+.team-panel.active h2 {
+    color: #2ecc71;
+}
+
+.team-panel.active .score {
+    color: #ffffff;
+}
+
+.message {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 1.5rem;
+    min-height: 1.5rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+#score-input {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* --- 3D BUTTONS --- */
+.btn {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 1.2rem;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all 0.1s ease; /* Fast transition for the mechanical press feel */
+}
+
+/* Green Buttons (Start, Submit) */
+.btn-green {
+    background-color: #27ae60;
+    /* The 3D Shadow: A dark green lip, plus a drop shadow */
+    box-shadow: 0 6px 0 #1e8449, 0 10px 15px rgba(0,0,0,0.5);
+}
+
+.btn-green:hover {
+    background-color: #2ecc71; /* Brighter on hover */
+    /* Lift slightly on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #1e8449, 0 15px 20px rgba(0,0,0,0.6);
+}
+
+.btn-green:active {
+    /* Push down when clicked */
+    transform: translateY(6px);
+    /* Shrink the lip to simulate pressing it into the background */
+    box-shadow: 0 0px 0 #1e8449, 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.btn-green:disabled {
+    background-color: #4a4a4a;
+    box-shadow: 0 6px 0 #333333;
+    color: #888;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Red Buttons (Reset, Back) */
+.btn-red {
+    background-color: #c0392b;
+    box-shadow: 0 6px 0 #922b21, 0 10px 15px rgba(0,0,0,0.5);
+}
+
+.btn-red:hover {
+    background-color: #e74c3c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #922b21, 0 15px 20px rgba(0,0,0,0.6);
+}
+
+.btn-red:active {
+    transform: translateY(6px);
+    box-shadow: 0 0px 0 #922b21, 0 2px 5px rgba(0,0,0,0.5);
+}
+/* --- BACKGROUND ANIMATION --- */
+
+#dart-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Keeps it behind your app container */
+    overflow: hidden;
+    pointer-events: none; /* Prevents darts from blocking button clicks */
+}
+
+.bg-dart {
+    position: absolute;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #7f8c8d, #bdc3c7);
+    left: -100px; /* Start off-screen */
+    opacity: 0;
+    animation: flyAcross linear infinite;
+}
+
+/* The Dart Tip */
+.bg-dart::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: -2px;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 6px solid #bdc3c7;
+}
+
+/* The Dart Flights (Feathers) */
+.bg-dart::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: -6px;
+    width: 12px;
+    height: 14px;
+    background-color: #ff4757; /* Red flights */
+    clip-path: polygon(0 20%, 100% 40%, 100% 60%, 0 80%);
+}
+
+/* The Flight Path */
+@keyframes flyAcross {
+    0% {
+        transform: translateX(0) rotate(10deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3; /* Keeps them subtle and semi-transparent */
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateX(120vw) translateY(20vh) rotate(10deg);
+        opacity: 0;
+    }
+}

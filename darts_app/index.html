@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darts Score Tracker</title>
+    <link rel="stylesheet" href="darts.css">
+</head>
+<body>
+    <div id="dart-bg-container"></div>
+    <div class="app-container">
+        
+        <div id="setup-screen">
+            <h1>Game Setup</h1>
+            
+            <div class="form-group">
+                <label for="game-mode">Select Game Mode:</label>
+                <select id="game-mode">
+                    <option value="301">301</option>
+                    <option value="501">501</option>
+                    <option value="killer" disabled>Killer (Coming Soon)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="team1-name-input">Team 1/ Player Name:</label>
+                <input type="text" id="team1-name-input" placeholder="e.g., Grandad" value="Team 1">
+            </div>
+
+            <div class="form-group">
+                <label for="team2-name-input">Team 2/ Player Name:</label>
+                <input type="text" id="team2-name-input" placeholder="e.g., Me" value="Team 2">
+            </div>
+
+            <button onclick="startGame()" class="btn btn-green">Start Game</button>
+        </div>
+
+        <div id="game-screen" class="hidden">
+            <h1 id="game-title">301 Darts</h1>
+            
+            <div class="scoreboard">
+                <div id="team1-panel" class="team-panel active">
+                    <h2 id="team1-name-display">Team 1</h2>
+                    <div id="team1-score" class="score">301</div>
+                </div>
+                <div id="team2-panel" class="team-panel">
+                    <h2 id="team2-name-display">Team 2</h2>
+                    <div id="team2-score" class="score">301</div>
+                </div>
+            </div>
+
+            <div id="message-board" class="message">Game On!</div>
+
+            <div class="controls">
+                <input type="number" id="score-input" placeholder="Enter score (0-180)" min="0" max="180">
+                <button id="submit-btn" onclick="submitScore()" class="btn btn-green">Submit Score</button>
+            </div>
+
+            <div class="settings">
+                <button onclick="resetToSetup()" class="btn btn-red">End Game & Back to Setup</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="darts.js"></script>
+</body>
+</html>
